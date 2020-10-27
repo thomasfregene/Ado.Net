@@ -17,27 +17,16 @@ namespace Ado.NetIntro
             using (SqlConnection con = new SqlConnection(CS))
             {
                 //Sql injection
-                string Command = "Select * From tblProductInventory Where ProductName Like '" + TextBox1.Text + "%'";
+                string Command = "Select * From tblProductInventory Where ProductName Like @ProductName";
                 SqlCommand cmd = new SqlCommand(Command, con);
+                cmd.Parameters.AddWithValue("@ProductName", TextBox1.Text + "%");
                 con.Open();
                 GridView1.DataSource = cmd.ExecuteReader();
                 GridView1.DataBind();
             }
         }
 
-        //protected void Button1_Click(object sender, EventArgs e)
-        //{
-        //    string CS = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
-        //    using(SqlConnection con = new SqlConnection(CS))
-        //    {
-        //        //Sql injection
-        //        string Command = "Select * From tblProductInventory Where ProductName Like '" + TextBox1.Text + "%'";
-        //        SqlCommand cmd = new SqlCommand(Command, con);
-        //        con.Open();
-        //        GridView1.DataSource = cmd.ExecuteReader();
-        //        GridView1.DataBind();
-        //    }
-        //}
+       
 
     }
 }

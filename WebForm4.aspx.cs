@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -17,8 +18,9 @@ namespace Ado.NetIntro
             using (SqlConnection con = new SqlConnection(CS))
             {
                 //Sql injection
-                string Command = "Select * From tblProductInventory Where ProductName Like @ProductName";
+                string Command = "spGetProductByName";
                 SqlCommand cmd = new SqlCommand(Command, con);
+                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@ProductName", TextBox1.Text + "%");
                 con.Open();
                 GridView1.DataSource = cmd.ExecuteReader();

@@ -19,16 +19,24 @@ namespace Ado.NetIntro
             //SqlConnection Object to pass connection string
             using(SqlConnection con = new SqlConnection(CS))
             {
-                //command object
-                //SqlCommand cmd = new SqlCommand("Select ProductId, Name, UnitPrice, QtyAvailable from tblProduct", con);
-                /*the below method is same as above*/
-                SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "Insert Into tblProduct Values(4, 'Calculators', 100, 230)";
+                SqlCommand cmd = new SqlCommand();  
                 cmd.Connection = con;
-                //opening the aqlconnection
                 con.Open();
+
+                //delete
+                cmd.CommandText = "Delete from tblProduct where ProductId = 4";
                 int TotalRowsAffected = cmd.ExecuteNonQuery();
-                Response.Write("Total Rows Inserted = " + TotalRowsAffected.ToString());
+                Response.Write("Total Rows Deleted = " + TotalRowsAffected.ToString() + "<br/>");
+
+                //insert
+                cmd.CommandText = "Insert Into tblProduct Values(4, 'Calculators', 100, 230)";
+                TotalRowsAffected = cmd.ExecuteNonQuery();
+                Response.Write("Total Rows Inserted = " + TotalRowsAffected.ToString() + "<br/>");
+
+                //update
+                cmd.CommandText = "update tblProduct set QtyAvailable = 200 where ProductId = 2";
+                TotalRowsAffected = cmd.ExecuteNonQuery();
+                Response.Write("Total Rows Updated = " + TotalRowsAffected.ToString());
             }
         }
     }

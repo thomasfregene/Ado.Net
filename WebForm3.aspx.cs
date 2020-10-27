@@ -23,12 +23,12 @@ namespace Ado.NetIntro
                 //SqlCommand cmd = new SqlCommand("Select ProductId, Name, UnitPrice, QtyAvailable from tblProduct", con);
                 /*the below method is same as above*/
                 SqlCommand cmd = new SqlCommand();
-                cmd.CommandText = "Select Count(ProductId) from tblProduct";
+                cmd.CommandText = "Insert Into tblProduct Values(4, 'Calculators', 100, 230)";
                 cmd.Connection = con;
                 //opening the aqlconnection
                 con.Open();
-                int TotalRows = (int)cmd.ExecuteScalar();
-                Response.Write("Total Rows = " + TotalRows.ToString());
+                int TotalRowsAffected = cmd.ExecuteNonQuery();
+                Response.Write("Total Rows Inserted = " + TotalRowsAffected.ToString());
             }
         }
     }

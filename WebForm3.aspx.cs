@@ -20,12 +20,15 @@ namespace Ado.NetIntro
             using(SqlConnection con = new SqlConnection(CS))
             {
                 //command object
-                SqlCommand cmd = new SqlCommand("Select ProductId, Name, UnitPrice, QtyAvailable from tblProduct", con);
+                //SqlCommand cmd = new SqlCommand("Select ProductId, Name, UnitPrice, QtyAvailable from tblProduct", con);
+                /*the below method is same as above*/
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandText = "Select Count(ProductId) from tblProduct";
+                cmd.Connection = con;
                 //opening the aqlconnection
                 con.Open();
-                //bing the data from the command object to a gridview
-                GridView1.DataSource = cmd.ExecuteReader();
-                GridView1.DataBind();
+                int TotalRows = (int)cmd.ExecuteScalar();
+                Response.Write("Total Rows = " + TotalRows.ToString());
             }
         }
     }

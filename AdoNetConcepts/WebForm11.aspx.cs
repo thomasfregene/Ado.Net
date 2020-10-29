@@ -57,10 +57,12 @@ namespace Ado.NetIntro.AdoNetConcepts
 
             using (SqlConnection con = new SqlConnection(CS))
             {
-                SqlDataAdapter da = new SqlDataAdapter((string)ViewState["SQL_QUERY"], con);
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = new SqlCommand((string)ViewState["SQL_QUERY"], con);
 
                 //using SqlCommandBuilder for DML Operation
-                SqlCommandBuilder builder = new SqlCommandBuilder(da);
+                SqlCommandBuilder builder = new SqlCommandBuilder();
+                builder.DataAdapter = da;
                 DataSet ds = (DataSet)ViewState["DATASET"];
 
                 if (ds.Tables["Students"].Rows.Count > 0)

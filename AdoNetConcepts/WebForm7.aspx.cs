@@ -26,7 +26,7 @@ namespace Ado.NetIntro
                     ProductsGridView.DataSource = rdr;
                     ProductsGridView.DataBind();
 
-                    //printing more than one result set using the NextResult method
+                    //getting more than one result set using the NextResult method
                     while (rdr.NextResult())
                     {
                         CategoriesGridView.DataSource = rdr;

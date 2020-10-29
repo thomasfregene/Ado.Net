@@ -10,27 +10,30 @@ using System.Web.UI.WebControls;
 
 namespace Ado.NetIntro.AdoNetConcepts
 {
-    public partial class WebForm8 : System.Web.UI.Page
+    public partial class WebForm9 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             string CS = ConfigurationManager.ConnectionStrings["DBCS"].ConnectionString;
 
-            using(SqlConnection con = new SqlConnection(CS))
+            using (SqlConnection con = new SqlConnection(CS))
             {
-                //dataAdapter
-                SqlDataAdapter da = new SqlDataAdapter();
-                da.SelectCommand = new SqlCommand("spGetProductInventory2ById", con);
+                SqlDataAdapter da = new SqlDataAdapter("spGetData", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
-                da.SelectCommand.Parameters.AddWithValue("@ProductId", TextBox1.Text);
 
+                /*dataset is an in memory rep of a database i.e stores tables in data and there relationship*/
                 DataSet ds = new DataSet();
-
-                //opening connection using fill method
                 da.Fill(ds);
 
-                GridView1.DataSource = ds;
+                //change the default names of ds tables
+                ds.Tables[0].TableName = "Products";
+                ds.Tables[1].TableName = "Categories";
+
+                GridView1.DataSource = ds.Tables["Products"];
                 GridView1.DataBind();
+
+                GridView2.DataSource = ds.Tables["Categories"];
+                GridView2.DataBind();
             }
         }
     }

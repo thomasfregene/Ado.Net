@@ -48,5 +48,19 @@ namespace Ado.NetIntro.AdoNetConcepts
                 lblMessage.Text = "Data Loaded from the Cache";
             }
         }
+
+        protected void btnClearCache_Click(object sender, EventArgs e)
+        {
+            if (Cache["Data"] != null)
+            {
+                Cache.Remove("Data");
+
+                lblMessage.Text = "The DataSet is removed from the cache";
+            }
+            else
+            {
+                lblMessage.Text = "There is nothing in the cache to be removed";
+            }
+        }
     }
 }

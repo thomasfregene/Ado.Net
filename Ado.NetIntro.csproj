@@ -107,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AdoNetConcepts\WebForm10.aspx" />
     <Content Include="AdoNetConcepts\WebForm8.aspx" />
     <Content Include="AdoNetConcepts\WebForm9.aspx" />
     <Content Include="Contact.aspx" />
@@ -174,6 +175,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdoNetConcepts\WebForm10.aspx.cs">
+      <DependentUpon>WebForm10.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdoNetConcepts\WebForm10.aspx.designer.cs">
+      <DependentUpon>WebForm10.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdoNetConcepts\WebForm8.aspx.cs">
       <DependentUpon>WebForm8.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

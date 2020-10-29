@@ -19,7 +19,7 @@ namespace Ado.NetIntro.AdoNetConcepts
             using(SqlConnection con = new SqlConnection(CS))
             {
                 //dataAdapter
-                SqlDataAdapter da = new SqlDataAdapter("Select * From tblProductInventory2", con);
+                SqlDataAdapter da = new SqlDataAdapter("spGetProductInventory2", con);
                 DataSet ds = new DataSet();
                 //opening connection using fill method
                 da.Fill(ds);

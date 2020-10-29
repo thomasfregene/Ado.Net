@@ -19,7 +19,8 @@ namespace Ado.NetIntro.AdoNetConcepts
             using(SqlConnection con = new SqlConnection(CS))
             {
                 //dataAdapter
-                SqlDataAdapter da = new SqlDataAdapter("spGetProductInventory2ById", con);
+                SqlDataAdapter da = new SqlDataAdapter();
+                da.SelectCommand = new SqlCommand("spGetProductInventory2ById", con);
                 da.SelectCommand.CommandType = CommandType.StoredProcedure;
                 da.SelectCommand.Parameters.AddWithValue("@ProductId", TextBox1.Text);
                 DataSet ds = new DataSet();

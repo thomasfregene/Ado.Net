@@ -108,6 +108,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="AdoNetConcepts\WebForm10.aspx" />
+    <Content Include="AdoNetConcepts\WebForm11.aspx" />
     <Content Include="AdoNetConcepts\WebForm8.aspx" />
     <Content Include="AdoNetConcepts\WebForm9.aspx" />
     <Content Include="Contact.aspx" />
@@ -181,6 +182,13 @@
     </Compile>
     <Compile Include="AdoNetConcepts\WebForm10.aspx.designer.cs">
       <DependentUpon>WebForm10.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdoNetConcepts\WebForm11.aspx.cs">
+      <DependentUpon>WebForm11.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdoNetConcepts\WebForm11.aspx.designer.cs">
+      <DependentUpon>WebForm11.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdoNetConcepts\WebForm8.aspx.cs">
       <DependentUpon>WebForm8.aspx</DependentUpon>

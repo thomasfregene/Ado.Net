@@ -86,6 +86,10 @@ namespace Ado.NetIntro.AdoNetConcepts
                     lblStatus.ForeColor = System.Drawing.Color.Red;
                     lblStatus.Text = "No row updated";
                 }
+
+                lblInsert.Text = builder.GetInsertCommand().CommandText;
+                lblUpdate.Text = builder.GetUpdateCommand().CommandText;
+                lblDelete.Text = builder.GetDeleteCommand().CommandText;
             }
         }
     }

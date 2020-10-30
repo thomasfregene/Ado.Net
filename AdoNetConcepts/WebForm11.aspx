@@ -59,6 +59,33 @@
                     </td>
                 </tr>
             </table>
+            <br />
+            <table>
+                <tr>
+                    <td>
+                        <b>Insert</b>
+                    </td>
+                    <td>
+                        <asp:Label ID="lblInsert" runat="server"></asp:Label>
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                        <b>Update</b>
+                    </td>
+                    <td>
+                        <asp:Label ID="lblUpdate" runat="server"></asp:Label>
+                    </td>
+                </tr>
+                 <tr>
+                    <td>
+                        <b>Delete</b>
+                    </td>
+                    <td>
+                        <asp:Label ID="lblDelete" runat="server"></asp:Label>
+                    </td>
+                </tr>
+            </table>
         </div>
     </form>
 </body>

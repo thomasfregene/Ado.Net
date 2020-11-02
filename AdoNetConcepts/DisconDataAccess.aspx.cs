@@ -68,7 +68,7 @@ namespace Ado.NetIntro.AdoNetConcepts
 
         protected void gvStudents_RowUpdated(object sender, GridViewUpdatedEventArgs e)
         {
-
+            //error code see gvStudents_RowUpdating below for correction
         }
 
         protected void gvStudents_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
